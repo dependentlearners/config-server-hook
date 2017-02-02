@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Import;
 public class ConfigServer {
     public static void main(String[] args) {
         final ConfigurableApplicationContext run = SpringApplication.run(ConfigServer.class, args);
-        //final AbstractScmEnvironmentRepository bean = run.getBean(AbstractScmEnvironmentRepository.class);
+        final AbstractScmEnvironmentRepository bean = run.getBean(AbstractScmEnvironmentRepository.class);
         final NativeEnvironmentRepository bean1 = run.getBean(NativeEnvironmentRepository.class);
         //System.out.println(bean);
         System.out.println(bean1);
