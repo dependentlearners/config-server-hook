@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-package gaddam1987.github.config.monitor;
+package monitor;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.util.MultiValueMap;
+
+import java.util.Map;
 
 /**
- * Simple abstraction of a list of paths that changed in a repository.
+ * Strategy for extracting a {@link PropertyPathNotification} from an incoming,
+ * unstructured request. Different providers of notifications have different payloads for
+ * their events, and different headers (e.g. HTTP headers for a webhook).
  *
  * @author Dave Syer
- *
  */
-@Data
-@NoArgsConstructor
-public class PropertyPathNotification {
+public interface PropertyPathNotificationExtractor {
 
-	public PropertyPathNotification(String... paths) {
-		this.paths = paths;
-	}
-
-	private String[] paths;
+    PropertyPathNotification extract(MultiValueMap<String, String> headers,
+                                     Map<String, Object> payload);
 
 }

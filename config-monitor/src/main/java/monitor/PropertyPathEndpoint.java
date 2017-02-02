@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gaddam1987.github.config.monitor;
+package monitor;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;

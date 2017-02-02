@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gaddam1987.github.config.monitor;
+package monitor;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;

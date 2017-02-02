@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gaddam1987.github.config.monitor;
+package monitor;
 
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +23,11 @@ import org.springframework.cloud.config.server.environment.NativeEnvironmentRepo
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.SmartLifecycle;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -55,7 +57,7 @@ public class FileMonitorConfiguration implements SmartLifecycle, ResourceLoaderA
     @Autowired
     PropertyPathEndpoint endpoint;
 
-    @Autowired
+    @Autowired(required = false)
     AbstractScmEnvironmentRepository scmRepository;
 
     @Autowired(required = false)
@@ -174,7 +176,7 @@ public class FileMonitorConfiguration implements SmartLifecycle, ResourceLoaderA
             try {
 
                 Resource resource = this.resourceLoader.getResource(this.scmRepository.getUri());
-                if (resource instanceof FileSystemResource) {
+                if (resource instanceof UrlResource) {
                     return Collections.singleton(Paths.get(resource.getURI()));
                 }
             } catch (IOException e) {

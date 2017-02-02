@@ -1,12 +1,11 @@
-package gaddam1987.github.config.monitor;
-
-import java.util.UUID;
-
-import org.springframework.context.ApplicationEvent;
-import org.springframework.util.StringUtils;
+package monitor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.util.StringUtils;
+
+import java.util.UUID;
 
 /**
  * @author Spencer Gibb

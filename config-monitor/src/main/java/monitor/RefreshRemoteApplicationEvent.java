@@ -1,6 +1,4 @@
-package gaddam1987.github.config.monitor;
-
-import org.springframework.context.ApplicationEvent;
+package monitor;
 
 /**
  * Created by Naresh Reddy on 02/02/2017.
