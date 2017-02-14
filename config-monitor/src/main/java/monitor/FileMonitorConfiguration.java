@@ -176,7 +176,10 @@ public class FileMonitorConfiguration implements SmartLifecycle, ResourceLoaderA
             try {
 
                 Resource resource = this.resourceLoader.getResource(this.scmRepository.getUri());
-                if (resource instanceof UrlResource) {
+                /*if (resource instanceof UrlResource) {
+                    return Collections.singleton(Paths.get(resource.getURI()));
+                }*/
+                if (resource instanceof FileSystemResource) {
                     return Collections.singleton(Paths.get(resource.getURI()));
                 }
             } catch (IOException e) {
